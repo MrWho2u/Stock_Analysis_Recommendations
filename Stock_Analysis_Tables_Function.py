@@ -7,7 +7,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 # The function has 5 outputs. Therefore, when you call the function, you must define 5 outputs.
-# Example: rolling_stock_df, bollinger_df, stock_result_df, spy_result_df, stock_spy_return_df = stock_analysis_tables(10, 21)
+# Example: rolling_stock_df, bollinger_df, stock_result_df, spy_result_df, stock_spy_return_df = stock_analysis_tables(10, 21, ticker)
 
 def stock_analysis_tables (hold_period_years, window_size_days, ticker):
     end_date = dt.date.today()
