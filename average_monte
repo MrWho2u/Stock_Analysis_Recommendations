@@ -1,6 +1,0 @@
-monte_carlo_return_table_df = pd.DataFrame(cumulative_returns_df.mean(axis=1))
-monte_carlo_return_table_df.columns = ['Stock']
-
-
-monte_carlo_return_table_df["SPY"] = cumulative_returns_df.mean(axis=1)
-monte_carlo_return_table_df.head()
