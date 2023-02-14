@@ -33,7 +33,7 @@ def run():
     #create Monte Carlo Graph
     monte_carlo_graph = monte_carlo_return_table_df.hvplot.line(title = f"Average {hold_time} {hold_unit} Cumulative Return Monte Carlo Simulation (1,000 simulations)")
     
-    return display(ratio_lang_final), display(bollinger_graph), display(boiler_lang), display(monte_carlo_graph), display(return_lang), print(), display(final_lang)
+    return print(ratio_lang_final), print(bollinger_graph), print(boiler_lang), print(monte_carlo_graph), print(return_lang), print(), print(final_lang)
 
 # Entry point for the application. Initiates the run() function.
 if __name__ == "__main__":

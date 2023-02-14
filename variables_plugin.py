@@ -61,6 +61,6 @@ def question_ask():
         # Ask the user if they want to proceed
         proceed = input("Do you want to proceed? (yes/no): ")
         # If the user does not want to proceed, break out of the main loop
-        if proceed.lower() != "yes":
+        if (proceed.lower() == "yes") or (proceed.lower() == "y"):
             break
     return ticker, hold_time, hold_unit, req_return
