@@ -4,8 +4,6 @@
 
 # Stock Investment Analysis
 
-A brief description of what this project does and who it's for
-
 The Stock Investment Analysis program is designed to help investors make informed decisions about their investment choices. The program takes in a stock ticker symbol. It then asks the user for the holding time (in days, months, or years) and the required rate of return for the investment. With this information, the program calculates the expected return on investment (ROI) for the specified holding period and compares it to the required rate of return. By taking into account the holding time and required rate of return, the program helps investors determine whether a particular investment is likely to generate the desired return on investment.
 ## Installation
 
