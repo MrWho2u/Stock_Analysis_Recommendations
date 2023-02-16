@@ -58,13 +58,13 @@ def monte_carlo_simulation(ticker, hold_unit, hold_time, stock_df, spy_df):
     # Prepare parameters for mean and 95% confidence interval for the histogram
     mean = np.mean(cumulative_returns_selected[-1, :])
     std = np.std(cumulative_returns_selected[-1, :])
-    lower_bound = mean - 1.96 * std
-    upper_bound = mean + 1.96 * std
+    lower_bound = np.percentile(cumulative_returns_selected[-1, :],95)
+    upper_bound = np.percentile(cumulative_returns_selected[-1, :],5)
     
     roll_mean = pd.DataFrame(cumulative_returns_selected).mean(axis=1)
     roll_std = pd.DataFrame(cumulative_returns_selected).std(axis=1)
-    min_val = roll_mean - 1.96*roll_std
-    max_val = roll_mean + 1.96*roll_std
+    min_val = pd.DataFrame(cumulative_returns_selected).quantile(q=.95,axis=1,interpolation='lower')
+    max_val = pd.DataFrame(cumulative_returns_selected).quantile(q=.05,axis=1,interpolation='higher')
     
     graph_area = plt.figure(figsize=(16,6))
     plt.plot(average_cumulative_returns_selected_df.index, 

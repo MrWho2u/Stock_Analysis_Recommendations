@@ -13,9 +13,9 @@ from warnings import filterwarnings
 filterwarnings("ignore")
 
 # Grab functions for python files
-from run_all import run
-from ticker_checker_plugin import ( get_stock_name, question_ask,)
-from stream_bollinger import boiler_table
+from stream_modules.run_all import run
+from stream_modules.ticker_checker_plugin import ( get_stock_name, question_ask,)
+from stream_modules.stream_bollinger import boiler_table
 
 #set up streamlit page
 st.set_page_config(page_title="My Webpage", page_icon="tda", layout="wide")

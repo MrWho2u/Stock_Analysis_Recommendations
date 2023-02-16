@@ -63,8 +63,8 @@ def monte_carlo_simulation(ticker, hold_unit, hold_time, stock_df, spy_df):
     
     roll_mean = pd.DataFrame(cumulative_returns_selected).mean(axis=1)
     roll_std = pd.DataFrame(cumulative_returns_selected).std(axis=1)
-    min_val = roll_mean - 1.96*roll_std
-    max_val = roll_mean + 1.96*roll_std
+    min_val = pd.DataFrame(cumulative_returns_selected).quantile(q=.95,axis=1)
+    max_val = pd.DataFrame(cumulative_returns_selected).quantile(q=.05,axis=1)
     
     graph_area = plt.figure(figsize=(16,6))
     plt.plot(average_cumulative_returns_selected_df.index, 

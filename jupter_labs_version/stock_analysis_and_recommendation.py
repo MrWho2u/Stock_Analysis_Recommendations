@@ -26,7 +26,7 @@ def run():
     # run monte carlo simulation to test results
     monte_carlo_return_table_df, mean, lower_bound, upper_bound, avg_cum_stock_return_df, avg_cum_spy_return_df, graph_area = monte_carlo_simulation(ticker, hold_unit, hold_time, stock_df, spy_df)
     # analize all the data and provide results
-    stock_sharpe_ratio, stock_sortino_ratio, bench_sharpe_ratio, bench_sortino_ratio, ratio_lang_final, sharpe_comp, return_lang, boiler_lang, final_lang = calculate_metrics(stock_return_df, req_return, ticker, spy_return_df, hold_unit, hold_time, avg_cum_stock_return_df, avg_cum_spy_return_df, bollinger_df)
+    ratio_lang_final, return_lang, boiler_lang, final_lang = calculate_metrics(stock_return_df, req_return, ticker, spy_return_df, hold_unit, hold_time, avg_cum_stock_return_df, avg_cum_spy_return_df, bollinger_df)
     # create an adaptive bollinger band graph
     bollinger_graph = boiler_table(stock_df,ticker)
     
