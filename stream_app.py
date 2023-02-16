@@ -34,7 +34,7 @@ with st.container():
     with col1:
         st.subheader("First, let's get some information")
         ticker = st.text_input("Please enter a stock ticker",value="TSLA").upper()
-        hold_unit = st.selectbox("What period do you want to hold this stock for?",('Years','Month','Day')).lower()
+        hold_unit = st.selectbox("What period do you want to hold this stock for?",('Years','Months','Days')).lower()
         hold_period = int(st.number_input(f"How many {hold_unit}?",min_value=1))
         req_return = float(st.number_input(f"What is your annulized required rate of return?",min_value=0.00))
         stock_name = question_ask(ticker)
