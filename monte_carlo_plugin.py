@@ -60,5 +60,33 @@ def monte_carlo_simulation(ticker, hold_unit, hold_time, stock_df, spy_df):
     std = np.std(cumulative_returns_selected[-1, :])
     lower_bound = mean - 1.96 * std
     upper_bound = mean + 1.96 * std
+    
+    roll_mean = pd.DataFrame(cumulative_returns_selected).mean(axis=1)
+    roll_std = pd.DataFrame(cumulative_returns_selected).std(axis=1)
+    min_val = roll_mean - 1.96*roll_std
+    max_val = roll_mean + 1.96*roll_std
+    
+    graph_area = plt.figure(figsize=(16,6))
+    plt.plot(average_cumulative_returns_selected_df.index, 
+             average_cumulative_returns_selected_df[f"Average Cumulative Returns - {selected_stock}"],
+             color='blue',
+             label = f"Cumulative {selected_stock} Returns",
+             figure=graph_area)
+    plt.plot(average_cumulative_returns_spy_df.index,
+             average_cumulative_returns_spy_df["Average Cumulative Returns - SPY"],
+             color='red',
+             label = "Cumulative SPY Returns",
+             figure=graph_area)
+    plt.fill_between(average_cumulative_returns_selected_df.index, 
+                     min_val,
+                     max_val, 
+                     color='blue', 
+                     alpha=.2,
+                     figure=graph_area)
+    plt.title(f"Average {hold_time} {hold_unit} Cumulative Return Monte Carlo Simulation (1,000 simulations)", 
+              fontdict=None,
+              loc = 'center',
+              figure=graph_area)
+    plt.legend(loc='upper right')
 
-    return monte_carlo_return_table_df, mean, lower_bound, upper_bound, avg_cum_stock_return_df, avg_cum_spy_return_df
+    return monte_carlo_return_table_df, mean, lower_bound, upper_bound, avg_cum_stock_return_df, avg_cum_spy_return_df, graph_area
