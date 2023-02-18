@@ -108,7 +108,7 @@ The Stock Investment Analysis Application is able to answer basic financial ques
 ## Contributors
 
 * Michael Roth
-* Demi Gao
+* Chang Gao
 * Diego Favela
 * Jonny Cruz
 
